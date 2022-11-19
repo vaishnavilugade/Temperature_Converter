@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+
+    <style>
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Century Gothic;
+  }
+  body{
+    margin: 0;
+    padding: 0;
+    background-image: url(https://tse4.mm.bing.net/th?id=OIP.HsHlIiIG-6iUYwR075zSFwHaFj&pid=Api&P=0);
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+
+  }
+  .temperature{
+      width:420px;
+      height:520;
+      margin:auto;
+      border-radius:5px;
+      background:black;
+
+      top: 50%;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%,-50%);
+      box-sizing: border-box;
+      padding: 70px 30px;
+  }
+  .temperature p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+  }
+  .temperature p{
+    color: white;
+
+  }
+  .temperature h1{
+      margin:0;
+      padding:0 0 60px;
+      font-weight:bold;
+      font-size:23px;
+      text-align: center;
+  }
+  .temperature h1{
+      color:white;
+  }
+  .temperature input{
+      width: 100%;
+      margin-bottom: 20px;
+  }
+  input[type=number],select{
+      width:100%;
+      padding:12px 20px;
+      margin:8px 0;
+      display:inline-block;
+      border:1px solid #ccc;
+      border-radius:4px;
+      box-sizing:border-box;
+      font-size:15px;
+  }
+  output[type=number],select{
+    width:100%;
+    padding:12px 20px;
+    margin:8px 0;
+    display:inline-block;
+    border:1px solid #ccc;
+    border-radius:4px;
+    box-sizing:border-box;
+    font-size:15px;
+}
+  .button{
+      width:100%;
+      background:red;
+      color:white;
+      padding:12px 17px;
+      margin:8px 0;
+      border:none;
+      border-radius:20px;
+      cursor:pointer;
+      font-size:20px;
+  }
+  .button2{
+      width:100%;
+      box-sizing:border-box;
+      padding:12px 17px;
+  }
+  #r{
+    background-color: white;
+  }
+
+    </style>
+
+
+
+
+
+
+
+<div class="temperature">
+
+<h1>TEMPERATURE CONVERTER</h1>
+<p>Value to convert</p>
+
+
+<label for="">""</label>
+<input type="number" placeholder="TEMPERATURE TO CONVERT" name="value" id="input_value"/>
+<p>From</p>
+<label for=""> ""</label>
+
+
+
+
+<select  name="input" id="input">
+<option value="select" id="select">SELECT UNIT</option>
+<option value="kel" id="kel">kelvin [°K]</option>
+<option value="cel" id="cel">celsius [°C]</option>
+<option value="far"id="far">fahrenheit [°F]</option>
+</select>
+
+
+
+<p>To</p>
+<label for="">""</label>
+
+<select name="output" id="output" >
+<option value="select" id="select">SELECT UNIT</option>
+<option value="kel" id="kel">kelvin [°K]</option>
+<option value="cel" id="cel">celsius [°C]</option>
+<option value="far"id="far">fahrenheit [°F]</option>
+</select>
+<p>convert</p>
+<label for="">""</label>
+
+
+
+<input class="button" type="submit" id="convert" onclick="Temp()" >
+<p>Result</p>
+<label for="">""</label>
+<input type="number" placeholder="VIEW RESULT" id="r" disabled>
+<output id="r"></output>
+
+
+</div>
+
+
+
+
+
+
+<script>
+    function Temp(){
+
+        var val,a,uone,utwo;
+
+
+        val=parseInt(document.getElementById("input_value").value);
+        uone=document.getElementById("input").value;
+        utwo=document.getElementById("output").value;
+
+
+        if(uone=='cel' && utwo=='far'){
+            a=((val)*9/5)+32;
+            document.getElementById('r').value=a.toFixed(3);
+        }
+        else if (uone==="cel" && utwo==="kel") {
+            a=(val)+273.15;
+            document.getElementById('r').value=a.toFixed(3);
+        }
+        else if (uone=="cel" && utwo=="cel") {
+            a=val;
+            document.getElementById("r").value=a;
+        }
+        if (uone=="far" && utwo=="cel") {
+            a=((val-32)*5)/9;
+            document.getElementById('r').value=a.toFixed(3);
+        }
+        else if (uone=="far" && utwo=="kel") {
+            a=((val-32)*5/9)+273.15;
+            document.getElementById('r').value=a.toFixed(3);
+        }
+        else if (uone=="far" && utwo=="far") {
+            a=val;
+            document.getElementById('r').value=a.toFixed(3);
+        }
+        if (uone=="kel" && utwo=="cel") {
+            a=val-273.15;
+            document.getElementById('r').value=a.toFixed(3);
+        }
+        else if (uone=="kel" && utwo=="far") {
+            a=((val-273.15)*9/5)+32;
+            document.getElementById('r').value=a.toFixed(3);
+        }
+        else if (uone=="kel" && utwo=="kel") {
+            a=val;
+            document.getElementById('r').value=a.toFixed(3);
+        }
+        else if(uone=="select" && utwo=="select"){
+          toastr.error("error");
+        }
+    }
+</script>
+
+
+
+
+</body>
+
+</html>
