@@ -2,6 +2,7 @@
 user will input a temperature in either fahrenheit/celsius/kelvin and then click on submit button. The converted temperature will be displayed in the output.
 
 
+   <p align="left">• 🚀 <strong>Demo of project is <a href="https://vaishnavilugade.github.io/Temp_convert_demo/">here </a></strong> !</p>
 
 
 
